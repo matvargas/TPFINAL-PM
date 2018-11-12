@@ -1,7 +1,11 @@
-INSTITUTO DE CIÊNCIAS EXATAS
-Departamento de Ciência da Computação
-Programação Modular -Trabalho Prático Final – 2018/2
-Especificação
+# INSTITUTO DE CIÊNCIAS EXATAS
+
+## Departamento de Ciência da Computação
+
+#### Programação Modular -Trabalho Prático Final – 2018/2
+
+##### Especificação
+
 A direção da cooperativa Clinica SaraCura deseja desenvolver um sistema para administrar agendas
 de atendimento médico e de exames de imagem. O sistema deverá apresentar uma interface inicial
 para o operador selecionar entre agendamento de consulta, agendamento de exame de imagem,
@@ -28,7 +32,9 @@ cheque ou cartão. Após autorização, ou confirmação do pagamento, da consul
 poderá ser confirmado e a agenda do médico deverá ser fechada e o sistema deve retornar à tela
 inicial. Caso não seja autorizado, ou o pagamento recusado, o agendamento do atendimento deverá
 ser cancelado e o sistema deve retornar à tela inicial.
-Sobre os exames
+
+
+###### Sobre os exames
 As agendas para exames são gerenciadas por equipamento. Cada equipamento tem sua agenda e
 pode funcionar de 7h às 20h em intervalos de 20 minutos para cada procedimento. Entretanto as
 agendas devem ser organizadas por tipos de exame (Tomografia Computadorizada, Ressonância
@@ -52,7 +58,9 @@ pagamento de atendimento particular as opções são: cheque, cartão ou em esp�
 e pagamentos devem usar a mesma interface e os mesmos procedimentos já descritos para
 consulta. Após a confirmar a autorização ou o pagamento a agenda de exames deverá ser encerrada
 e o sistema retorna à tela inicial.
-Validação do pagamento de atendimento particular.
+
+
+###### Validação do pagamento de atendimento particular.
 Caso seja o atendimento (consulta ou exame) seja particular, serão admitidas três formas de
 pagamento: cheque, cartão - de débito ou de crédito, ou pagamento em espécie. Para estas formas,
 o sistema deverá validar o pagamento: no caso de cheque e de cartão de débito – simular uma
@@ -62,7 +70,8 @@ emissão de um recibo.
 Na simulação do pagamento via cheque ou cartão, deverá haver um sorteio para recusar um
 pagamento a cada dez consultas. Quando o pagamento for recusado, o agendamento do
 atendimento deverá ser cancelado.
-Validação do convenio
+
+######  Validação do convenio
 Também no uso do convenio dever ocorrer uma simulação para obtenção da autorização. Neste
 caso, a cada doze tentativas deverá negada uma autorização. Para cada autorização negada deverá
 ser emitida uma mensagem informado que o convenio XXX não autorizou o procedimento YYY para
@@ -81,9 +90,11 @@ Não há necessidade de criar cadastros de clientes e médicos. Mas, na tela ini
 opção para que o operador possa cadastrar novas agendas para novos médicos e para exames,
 possa editar agendas já existentes ou mesmo remove-las. Fica a critério do projetista desenvolver as
 interfaces e as funcionalidades para este cadastro de agendas.
-Sobre o trabalho
+
+
+###### Sobre o trabalho
 O trabalho poderá ser desenvolvido em grupos de até cinco alunos. Os grupos deverão ser formados
-e a relação dos participantes deve ser enviada ao professor (hfmatos@dcc.ufmg.br) até o dia 20 de
+e a relação dos participantes deve ser enviada ao professor (################) até o dia 20 de
 Novembro. Estas informações serão usadas para a programação da apresentação.
 Cada grupo deverá desenvolver seu projeto, documenta-lo, fazer uma apresentação em sala de aula
 para a turma e enviar um relatório apresentando e descrevendo de forma sucinta o projeto. Deverá
