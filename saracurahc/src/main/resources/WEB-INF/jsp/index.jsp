@@ -39,13 +39,23 @@
             <div class="container fill">
                 <div class="row justify-content-around align-items-center">
                     <div class="col-md-4">
-                        <a href="#" class="photo-bg img-medical-consultant-bg">Agendamento de consulta</a>
+                        <a href="#" class="photo-bg img-medical-consultant-bg home-nav-link">
+                            <span class="home-nav-span">
+                                Agendamento de consulta
+                            </span>
+                        </a>
                     </div>
                     <div class="col-md-4">
-                        <a href="#" class="photo-bg image-exam-bg">Agendamento de exame de imagem</a>
+                        <a href="#" class="photo-bg image-exam-bg home-nav-link">
+                            <span class="home-nav-span">
+                                Exame de imagem</a>
+                            </span>
                     </div>
                     <div class="col-md-4">
-                        <a href="#" class="photo-bg image-scheduling-bg">Atualização de agenda</a>
+                        <a href="#" class="photo-bg image-scheduling-bg home-nav-link">
+                            <span class="home-nav-span">
+                                Atualização de agenda</a>
+                            </span>
                     </div>
                 </div>
             </div>

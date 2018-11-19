@@ -18,7 +18,16 @@
 }
 
 .photo-bg:hover {
-    box-shadow: 5px 5px 20px -6px yellow !important;
+    box-shadow: 5px 5px 30px -2px #000000 !important;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: gray;
+}
+
+.photo-bg:active {
+    border-style: revert;
+    border-width: 0.5px;
+    border-color: gray;
 }
 
 .fill {
@@ -51,4 +60,21 @@
 
 .margin-top-2pc {
     margin-top: 2%;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a:link.home-nav-link {
+    line-height: 730px;
+    display: block;
+    text-align: center;
+}
+
+span.home-nav-span {
+    background-color: #009688;
+    border-radius: 2%;
+    color: #ffffff;
+    padding: 10px;
 }
