@@ -1,4 +1,4 @@
-package com.saracurahc.models;
+package com.saracurahc.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
