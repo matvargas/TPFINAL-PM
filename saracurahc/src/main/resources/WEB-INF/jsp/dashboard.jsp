@@ -39,7 +39,7 @@
             <div class="container fill">
                 <div class="row justify-content-around align-items-center">
                     <div class="col-md-4">
-                        <a href="#" class="photo-bg img-medical-consultant-bg home-nav-link">
+                        <a href="/appointment" class="photo-bg img-medical-consultant-bg home-nav-link">
                             <span class="home-nav-span">
                                 Agendamento de consulta
                             </span>
