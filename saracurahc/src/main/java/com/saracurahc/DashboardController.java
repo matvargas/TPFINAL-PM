@@ -10,7 +10,7 @@ public class DashboardController {
     @Value("${spring.application.name}")
     String appName;
 
-    @GetMapping("/")
+    @GetMapping("/dashboard")
     public String homePage(Model model) {
         model.addAttribute("appName", appName);
         return "index";
