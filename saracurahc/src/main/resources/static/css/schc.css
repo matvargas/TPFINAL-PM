@@ -58,7 +58,11 @@
     background-position: center;
 }
 
-.margin-top-2pc {
+.mt2pc {
+    margin-top: 2%;
+}
+
+.mb2pc {
     margin-top: 2%;
 }
 

@@ -8,12 +8,16 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class SpecialityDAO {
+public class DoctorDAO {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Map<String, Object>> getAll() {
-        return jdbcTemplate.queryForList("select * from Speciality");
+    public List<Map<String, Object>> findBySpeciality(int specialityId) {
+        return jdbcTemplate.queryForList("sele");
+
+//        SELECT * FROM DOCTOR D INNER JOIN SPECIALITY S ON D.speciality = S.id WHERE S.id = 9;
+
     }
+
 }

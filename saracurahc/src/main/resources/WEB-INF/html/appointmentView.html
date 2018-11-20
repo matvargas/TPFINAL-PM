@@ -35,14 +35,14 @@
             </ul>
         </div>
     </nav>
-    <div class="margin-top-2pc">
+    <div class="mt2pc">
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSpecialities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Escolha uma especialidade
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" th:each="speciality : ${specialities}" th:text="${speciality[TYPE]}" th:value="${speciality[ID]}"></a>
                     </div>
                 </div>
@@ -64,6 +64,7 @@
                 </div>
             </div>
         </div>
+        <hr class="mb2pc">
     </div>
 </body>
 </html>
