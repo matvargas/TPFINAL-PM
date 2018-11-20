@@ -18,10 +18,10 @@ public class DoctorRestController {
     @Autowired
     DoctorDAO doctorDAO;
 
-    @RequestMapping(value = "/getDoctorsBySpeciality/{id}", method = GET)
+    @RequestMapping(value = "/getDoctorsBySpeciality/{speciality}", method = GET)
     @ResponseBody
-    public List<Map<String, Object>> getDoctorsBySpeciality(@PathVariable("id") int id){
-        return doctorDAO.findBySpecialityId(id);
+    public List<Map<String, Object>> getDoctorsBySpeciality(@PathVariable("speciality") String speciality){
+        return doctorDAO.findBySpeciality(speciality);
     }
 
 }

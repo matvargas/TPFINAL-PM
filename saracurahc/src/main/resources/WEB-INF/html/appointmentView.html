@@ -13,10 +13,13 @@
 
     <link rel="stylesheet" href="/css/schc.css"/>
 
+    <!--Page treatment-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/appointment.js"></script>
+    <!--<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>-->
 
     <title>SCHC</title>
 </head>
@@ -39,30 +42,30 @@
         <div class="container">
             <div class="row justify-content-around align-items-center">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSpecialities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="btnDropdownSpecialities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Escolha uma especialidade
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" th:each="speciality : ${specialities}" th:text="${speciality[TYPE]}" th:value="${speciality[ID]}"></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="dropdownSpecialities">
+                        <a class="dropdown-item speciality-select" th:each="speciality : ${specialities}" th:text="${speciality[TYPE]}" th:value="${speciality[ID]}"></a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownDoctors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button disabled class="btn btn-secondary dropdown-toggle" type="button" id="btnDropdownDoctors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Escolha um médico
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" th:each="speciality : ${specialities}" th:text="${speciality[TYPE]}" th:value="${speciality[ID]}"></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownDoctors">
+                        <!--TO BE FILLED WITH JS-->
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-around align-items-center">
-                <div>
-                    ESPECIALIDADE
-                </div>
-                <div>
-                    MEDICO ESCOLHIDO
-                </div>
-            </div>
+            <!--<div class="row justify-content-around align-items-center">-->
+                <!--<div>-->
+                    <!--ESPECIALIDADE-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--MEDICO ESCOLHIDO-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
         <hr class="mb2pc">
     </div>

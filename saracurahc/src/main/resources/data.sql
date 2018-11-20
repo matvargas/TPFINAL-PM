@@ -30,43 +30,43 @@ values(9, 'Reumatologista');
 -- Insert Doctors data
 
 insert into doctor
-values(1, 'Doutor Leão', 1);
+values(1, 'Doutor Leão', 'Clínico Geral');
 
 insert into doctor
-values(2, 'Doutor Girafa', 2);
+values(2, 'Doutor Girafa', 'Cardiologista');
 
 insert into doctor
-values(3, 'Doutor Sapo', 3);
+values(3, 'Doutor Sapo', 'Fonoaudiólogo');
 
 insert into doctor
-values(4, 'Doutor Agrião', 4);
+values(4, 'Doutor Agrião', 'Neurologista');
 
 insert into doctor
-values(5, 'Doutor Alface', 5);
+values(5, 'Doutor Alface', 'Ortopedista');
 
 insert into doctor
-values(6, 'Doutor Pimplolho', 6);
+values(6, 'Doutor Pimplolho', 'Oftalmologista');
 
 insert into doctor
-values(7, 'Doutor Jeep', 7);
+values(7, 'Doutor Jeep', 'Otorrinolaringologista');
 
 insert into doctor
-values(8, 'Doutor Abelha', 8);
+values(8, 'Doutor Abelha', 'Dermatologista');
 
 insert into doctor
-values(9, 'Doutor Algodão', 9);
+values(9, 'Doutor Algodão', 'Reumatologista');
 
 insert into doctor
-values(10, 'Doutor Cachorro', 9);
+values(10, 'Doutor Cachorro', 'Reumatologista');
 
 insert into doctor
-values(11, 'Doutor Rato', 8);
+values(11, 'Doutor Rato', 'Dermatologista');
 
 insert into doctor
-values(12, 'Doutor Macaco', 7);
+values(12, 'Doutor Macaco', 'Otorrinolaringologista');
 
 insert into doctor
-values(13, 'Doutor Águia', 6);
+values(13, 'Doutor Águia', 'Oftalmologista');
 
 insert into doctor
-values(14, 'Doutor Daciolo', 5);
+values(14, 'Doutor Daciolo', 'Ortopedista');

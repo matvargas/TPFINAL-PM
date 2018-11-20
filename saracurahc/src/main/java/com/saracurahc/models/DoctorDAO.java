@@ -13,8 +13,8 @@ public class DoctorDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Map<String, Object>> findBySpecialityId(int specialityId) {
-        return jdbcTemplate.queryForList("SELECT * FROM DOCTOR D INNER JOIN SPECIALITY S ON D.speciality = S.id WHERE S.id = ?", new Object[]{specialityId});
+    public List<Map<String, Object>> findBySpeciality(String speciality) {
+        return jdbcTemplate.queryForList("SELECT * FROM DOCTOR D WHERE D.speciality = ?", new Object[]{speciality});
     }
 
 }

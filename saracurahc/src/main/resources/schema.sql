@@ -7,7 +7,7 @@ CREATE TABLE Speciality (
 CREATE TABLE Doctor (
     id   INTEGER      NOT NULL AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
-    speciality INTEGER,
+    speciality VARCHAR (128),
     PRIMARY KEY (id),
-    FOREIGN KEY (speciality) REFERENCES Speciality(id)
+    FOREIGN KEY (speciality) REFERENCES Speciality(type)
 );
