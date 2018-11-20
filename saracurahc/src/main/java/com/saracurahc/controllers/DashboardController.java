@@ -24,11 +24,9 @@ public class DashboardController {
     }
 
     @GetMapping("/appointment")
-    public String appointmentPage(Model model, @RequestParam(value = "teste", required = false, defaultValue = "") String teste) {
-        teste = "tesadasasdsadasdste";
+    public String appointmentPage(Model model) {
         List<Map<String, Object>> specialities = specialityDAO.getAll();
         model.addAttribute("specialities", specialities);
-        model.addAttribute("teste", teste);
         return "appointmentView";
     }
 }
