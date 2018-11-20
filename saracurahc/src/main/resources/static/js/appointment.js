@@ -21,6 +21,10 @@ function getDoctorsBySpeciality(speciality) {
         timeout: 600000,
         success: function (data) {
             $('#btnDropdownDoctors').prop("disabled", false);
+            $('#dropdownDoctors').html('');
+            for(i = 0; i < data.length; i++) {
+                $('#dropdownDoctors').append("<a class=\"dropdown-item\">" + data[i].NAME + "</a>");
+            }
         },
         error: function (e) {
             $('#btnDropdownDoctors').prop("disabled", true);
