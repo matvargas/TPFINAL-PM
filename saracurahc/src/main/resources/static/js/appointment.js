@@ -18,6 +18,10 @@ $(document).ready(function () {
         selectable:true,
         select: function(start, end)
         {
+            $('#appointment-details').show();
+            $('#modalProceedBtn').show();
+            $('#modalConfirmBtn').hide();
+            $('#appointment-payment').hide();
             $('#eventCreatorModal').modal('show');
         },
         height: 650,
@@ -26,7 +30,14 @@ $(document).ready(function () {
         eventLimit: true, // allow "more" link when too many events
     });
 
-    $('#appointment-schedule').addClass("disabled");
+    //$('#appointment-schedule').addClass("disabled");
+
+    $('#modalProceedBtn').click(function (e) {
+        $('#appointment-details').hide();
+        $('#modalProceedBtn').hide();
+        $('#modalConfirmBtn').fadeIn("slow");
+        $('#appointment-payment').fadeIn("slow");
+    });
 
 });
 
@@ -50,7 +61,7 @@ function getDoctorsBySpeciality(speciality) {
                 var doctor = $(e.target).text();
                 $('#btnDropdownDoctors').html('');
                 $('#btnDropdownDoctors').append(doctor);
-                $('#appointment-schedule').removeClass("disabled");
+                //$('#appointment-schedule').removeClass("disabled");
             })
         },
         error: function (e) {
