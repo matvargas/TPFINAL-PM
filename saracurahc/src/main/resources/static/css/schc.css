@@ -90,3 +90,8 @@ span.home-nav-span {
 h5.filters-green-color {
     color: #009688;
 }
+
+.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
