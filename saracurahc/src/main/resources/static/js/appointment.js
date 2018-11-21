@@ -4,13 +4,15 @@ $(document).ready(function () {
     $('.speciality-select').click(function(e) {
         var speciality = $(e.target).text();
         getDoctorsBySpeciality(speciality);
+        $('#btnDropdownSpecialities').html('');
+        $('#btnDropdownSpecialities').append(speciality);
     });
 
-    $('#appointment-schedule').fullCalendar({
-        defaultDate: '2014-09-12',
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-    });
+    // $('#appointment-schedule').fullCalendar({
+    //     defaultDate: '2014-09-12',
+    //     editable: true,
+    //     eventLimit: true, // allow "more" link when too many events
+    // });
 
 });
 
@@ -32,6 +34,8 @@ function getDoctorsBySpeciality(speciality) {
 
             $('.selected-doctor').click(function (e) {
                 var doctor = $(e.target).text();
+                $('#btnDropdownDoctors').html('');
+                $('#btnDropdownDoctors').append(doctor);
                 $('#scheduleOF').html('');
                 $('#scheduleOF').append("Agenda de " + doctor + ", especialidade médica: " + speciality);
             })

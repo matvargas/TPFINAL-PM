@@ -63,7 +63,11 @@
 }
 
 .mb2pc {
-    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.mb1pc {
+    margin-bottom: 1%;
 }
 
 a {
@@ -81,4 +85,8 @@ span.home-nav-span {
     border-radius: 2%;
     color: #ffffff;
     padding: 10px;
+}
+
+h5.filters-green-color {
+    color: #009688;
 }
