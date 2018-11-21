@@ -30,7 +30,7 @@ $(document).ready(function () {
         eventLimit: true, // allow "more" link when too many events
     });
 
-    $('#appointment-schedule').addClass("disabled");
+    // $('#appointment-schedule').addClass("disabled");
 
     $('#modalProceedBtn').click(function (e) {
         $('#appointment-details').hide();
@@ -61,7 +61,7 @@ function getDoctorsBySpeciality(speciality) {
                 var doctor = $(e.target).text();
                 $('#btnDropdownDoctors').html('');
                 $('#btnDropdownDoctors').append(doctor);
-                $('#appointment-schedule').removeClass("disabled");
+                // $('#appointment-schedule').removeClass("disabled");
             })
         },
         error: function (e) {

@@ -70,3 +70,40 @@ values(13, 'Doutor Águia', 'Oftalmologista');
 
 insert into doctor
 values(14, 'Doutor Daciolo', 'Ortopedista');
+
+-- Populate Event Types
+
+insert into event_type
+values(1, 'Agendamento');
+
+insert into event_type
+values(2, 'Exame de Imagem');
+
+-- Populate Events
+
+insert into event
+values(1, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T13:00:00-0400', '2018-11-24T13:20:00-0400');
+
+insert into event
+values(2, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T13:20:00-0400', '2018-11-24T13:40:00-0400');
+
+insert into event
+values(3, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T13:40:00-0400', '2018-11-24T14:00:00-0400');
+
+insert into event
+values(4, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T14:00:00-0400', '2018-11-24T14:20:00-0400');
+
+insert into event
+values(5, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T14:20:00-0400', '2018-11-24T14:40:00-0400');
+
+insert into event
+values(6, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T14:40:00-0400', '2018-11-24T15:00:00-0400');
+
+insert into event
+values(7, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T15:00:00-0400', '2018-11-24T15:20:00-0400');
+
+insert into event
+values(8, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T15:20:00-0400', '2018-11-24T15:40:00-0400');
+
+insert into event
+values(9, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T15:40:00-0400', '2018-11-24T16:00:00-0400');
