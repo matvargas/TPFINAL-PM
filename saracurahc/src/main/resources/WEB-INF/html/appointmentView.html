@@ -9,22 +9,34 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
 
     <!-- Material Design for Bootstrap CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">-->
 
     <link rel="stylesheet" href="/css/schc.css"/>
 
-    <!--Page treatment-->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!--JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Bootstrap JS-->
     <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <!--<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.js"></script>
+
+    <!--Full Calendar-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+
+    <!--Specific js-->
     <script src="js/appointment.js"></script>
-    <!--<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>-->
 
     <title>SCHC</title>
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-boxshadow">
         <a class="navbar-brand" href="/">Agendamento de consulta</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -40,17 +52,22 @@
     </nav>
     <div class="mt2pc">
         <div class="container">
+            <div class="row mb2pc">
+                <h5 class="mx-auto filters-green-color">
+                    Escolha uma especialidade e um médico para visualizar a agenda do profissional
+                </h5>
+            </div>
             <div class="row justify-content-around align-items-center">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="btnDropdownSpecialities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="btnDropdownSpecialities" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Escolha uma especialidade
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" id="dropdownSpecialities">
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownSpecialities">
                         <a class="dropdown-item speciality-select" th:each="speciality : ${specialities}" th:text="${speciality[TYPE]}" th:value="${speciality[ID]}"></a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <button disabled class="btn btn-secondary dropdown-toggle" type="button" id="btnDropdownDoctors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button disabled class="btn btn-light dropdown-toggle" type="button" id="btnDropdownDoctors" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Escolha um médico
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownDoctors">
@@ -60,7 +77,138 @@
             </div>
         </div>
         <hr class="mb2pc">
-        <div id="scheduleOF" class="row justify-content-around align-items-center">
+        <div class="container">
+            <div class="row">
+                <div id="appointment-schedule">
+                    <!--FILL WITH SCHEDULE CONTENT-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Event creator modal -->
+    <div class="modal fade" id="eventCreatorModal" tabindex="-1" role="dialog" aria-labelledby="eventCreatorModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventCreatorModalLabel">Agendamento de consulta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="appointment-details">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>Detalhes da consulta</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <i class="material-icons icon-offset">
+                                    info
+                                </i> Especialidade
+                            </div>
+                            <div class="col-md-6">
+                                <i class="material-icons icon-offset">
+                                    perm_identity
+                                </i>Médico responsável
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <i class="material-icons icon-offset">
+                                    access_time
+                                </i> Horário de início
+                            </div>
+                            <div class="col-md-6">
+                                <i class="material-icons icon-offset">
+                                    hourglass_empty
+                                </i>Duração
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>Detalhes do paciente</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="material-icons">
+                                                face
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon2">
+                                            <i class="material-icons">
+                                                contact_phone
+                                            </i>
+                                        </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="appointment-payment" style="display: none">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6>Detalhes de pagamento</h6>
+                            </div>
+                        </div>
+                        <div class="row mt2pc">
+                            <div class="col-md-4">Convênio</div>
+                            <div class="col-md-4">
+                                <div class="material-switch pull-right">
+                                    <input id="someSwitchOptionSuccess" name="someSwitchOption001" type="checkbox"/>
+                                    <label for="someSwitchOptionSuccess" class="label-success"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">Particular</div>
+                        </div>
+                        <div class="row mt2pc">
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="insurance-name">
+                                        <i class="material-icons">
+                                            business
+                                        </i>
+                                    </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Convênio" aria-label="Convênio" aria-describedby="insurance-name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                    <span class="input-group-text" id="insurance-registration">
+                                        <i class="material-icons">
+                                            assignment_ind
+                                        </i>
+                                    </span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Matrícula" aria-label="Matrícula" aria-describedby="insurance-registration">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" id="modalProceedBtn" class="btn btn-primary">Avançar</button>
+                    <button type="button" id="modalConfirmBtn" class="btn btn-success" style="display: none">Agendar</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
