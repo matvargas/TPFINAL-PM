@@ -14,10 +14,19 @@
     <link rel="stylesheet" href="/css/schc.css"/>
 
     <!--Full Calendar-->
-    <script src="js/jquery.min.js"></script>
     <script src="js/moment.min.js"></script>
-    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/lang-all.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#appointment-schedule').fullCalendar()({
+                defaultDate: '2014-09-12',
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+            });
+        });
+    </script>
 
 
     <!--Bootstrap JS-->
@@ -72,6 +81,7 @@
         <hr class="mb2pc">
         <div id="scheduleOF" class="row justify-content-around align-items-center">
         </div>
+        <div id="appointment-schedule"></div>
     </div>
 </body>
 </html>
