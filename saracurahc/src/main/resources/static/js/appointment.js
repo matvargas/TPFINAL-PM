@@ -9,7 +9,13 @@ $(document).ready(function () {
     });
 
     $('#appointment-schedule').fullCalendar({
-        defaultDate: '2014-09-12',
+        header:{
+            left:'prev,next today',
+            center:'title',
+            right:'month,agendaWeek,agendaDay'
+        },
+        height: 650,
+        defaultView: 'agendaWeek',
         editable: true,
         eventLimit: true, // allow "more" link when too many events
     });
@@ -38,6 +44,7 @@ function getDoctorsBySpeciality(speciality) {
                 var doctor = $(e.target).text();
                 $('#btnDropdownDoctors').html('');
                 $('#btnDropdownDoctors').append(doctor);
+                $('#appointment-schedule').removeClass("disabled");
             })
         },
         error: function (e) {
