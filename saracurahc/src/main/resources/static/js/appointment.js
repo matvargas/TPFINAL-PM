@@ -14,6 +14,12 @@ $(document).ready(function () {
             center:'title',
             right:'month,agendaWeek,agendaDay'
         },
+        theme: 'bootstrap3',
+        selectable:true,
+        select: function(start, end)
+        {
+            $('#eventCreatorModal').modal('show');
+        },
         height: 650,
         defaultView: 'agendaWeek',
         editable: true,
