@@ -6,6 +6,12 @@ $(document).ready(function () {
         getDoctorsBySpeciality(speciality);
     });
 
+    $('#appointment-schedule').fullCalendar({
+        defaultDate: '2014-09-12',
+        editable: true,
+        eventLimit: true, // allow "more" link when too many events
+    });
+
 });
 
 function getDoctorsBySpeciality(speciality) {
