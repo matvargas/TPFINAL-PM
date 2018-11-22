@@ -62,10 +62,41 @@ function getDoctorsBySpeciality(speciality) {
                 $('#btnDropdownDoctors').html('');
                 $('#btnDropdownDoctors').append(doctor);
                 // $('#appointment-schedule').removeClass("disabled");
+
+                // Fill schedule with events
+                getEvents();
+
             })
         },
         error: function (e) {
             $('#btnDropdownDoctors').prop("disabled", true);
+        }
+    });
+}
+
+function getEvents() {
+
+    events = [];
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getAllEvents",
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            for (i = 0; i < data.length ;i++){
+                events.push({
+                    title: data[i]["TITLE"],
+                    start: data[i]["BEGINDATE"],
+                    end: data[i]["ENDDATE"],
+                });
+            }
+            $('#appointment-schedule').fullCalendar('addEventSource',  events);
+        },
+        error: function (e) {
+            alert("Error fetching events");
         }
     });
 }
