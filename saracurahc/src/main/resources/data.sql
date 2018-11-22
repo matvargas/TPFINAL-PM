@@ -81,29 +81,32 @@ values(2, 'Exame de Imagem');
 
 -- Populate Events
 
-insert into event
-values(1, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T13:00:00', '2018-11-24T13:20:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T13:00:00', '2018-11-24T13:20:00');
 
-insert into event
-values(2, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T13:20:00', '2018-11-24T13:40:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T13:20:00', '2018-11-24T13:40:00');
 
-insert into event
-values(3, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T13:40:00', '2018-11-24T14:00:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T13:40:00', '2018-11-24T14:00:00');
 
-insert into event
-values(4, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T14:00:00', '2018-11-24T14:20:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T14:00:00', '2018-11-24T14:20:00');
 
-insert into event
-values(5, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T14:20:00', '2018-11-24T14:40:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T14:20:00', '2018-11-24T14:40:00');
 
-insert into event
-values(6, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T14:40:00', '2018-11-24T15:00:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T14:40:00', '2018-11-24T15:00:00');
 
-insert into event
-values(7, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T15:00:00', '2018-11-24T15:20:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T15:00:00', '2018-11-24T15:20:00');
 
-insert into event
-values(8, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T15:20:00', '2018-11-24T15:40:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T15:20:00', '2018-11-24T15:40:00');
 
-insert into event
-values(9, NULL, 1, NULL, 1, 'Consulta com o Doutor Leão', '2018-11-24T15:40:00', '2018-11-24T16:00:00');
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T15:40:00', '2018-11-24T16:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-24T16:00:00', '2018-11-24T16:20:00');
