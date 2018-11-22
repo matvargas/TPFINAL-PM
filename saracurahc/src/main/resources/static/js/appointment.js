@@ -15,9 +15,7 @@ $(document).ready(function () {
             right:'month,agendaWeek,agendaDay'
         },
         theme: 'bootstrap3',
-        selectable:true,
-        select: function(start, end)
-        {
+        eventClick: function(event, jsEvent, view){
             $('#appointment-details').show();
             $('#modalProceedBtn').show();
             $('#modalConfirmBtn').hide();
@@ -25,7 +23,7 @@ $(document).ready(function () {
             $('#eventCreatorModal').modal('show');
         },
         height: 650,
-        defaultView: 'agendaWeek',
+        defaultView: 'month',
         editable: true,
         eventLimit: true, // allow "more" link when too many events
     });
