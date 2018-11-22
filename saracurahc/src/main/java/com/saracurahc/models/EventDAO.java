@@ -16,4 +16,12 @@ public class EventDAO {
     public List<Map<String, Object>> getAll() {
         return jdbcTemplate.queryForList("select * from Event");
     }
+
+    public List<Map<String, Object>> getEventsByDoctorName(String doctorName) {
+        return jdbcTemplate.queryForList("select * from Event E " +
+                "INNER JOIN Doctor D " +
+                "ON E.doctor_associated = D.id " +
+                "WHERE D.name = ?", new Object[]{doctorName});
+    }
+
 }

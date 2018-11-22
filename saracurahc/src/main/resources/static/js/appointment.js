@@ -62,7 +62,7 @@ function getDoctorsBySpeciality(speciality) {
                 $('#appointment-schedule').removeClass("disabled");
 
                 // Fill schedule with events
-                getEvents();
+                getEvents(doctor);
 
             })
         },
@@ -72,14 +72,14 @@ function getDoctorsBySpeciality(speciality) {
     });
 }
 
-function getEvents() {
+function getEvents(doctor) {
 
     events = [];
 
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/getAllEvents",
+        url: "/getEventsByDoctorName/" + doctor,
         dataType: 'json',
         cache: false,
         timeout: 600000,
