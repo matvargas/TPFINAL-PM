@@ -99,6 +99,7 @@ function getEvents() {
                     color: color,
                 });
             }
+            $('#appointment-schedule').fullCalendar('removeEventSources');
             $('#appointment-schedule').fullCalendar('addEventSource',  events);
         },
         error: function (e) {
