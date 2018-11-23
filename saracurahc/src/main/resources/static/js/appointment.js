@@ -21,6 +21,12 @@ $(document).ready(function () {
         eventClick: function(event, jsEvent, view){
 
             // FILL MODAL WITH APPOINTMENT DETAILS
+
+            $('#someSwitchOptionSuccess').prop('checked', false);
+
+            $('#patient-name-text').val('');
+            $('#patient-registration-number').val('');
+
             $('#appointment-details #modal-detail-speciality').html('');
             $('#appointment-details #modal-detail-speciality').append(speciality);
 
@@ -50,6 +56,18 @@ $(document).ready(function () {
         $('#modalConfirmBtn').fadeIn("slow");
         $('#appointment-payment').fadeIn("slow");
     });
+
+    $('#particular-payment').hide();
+
+    $('#someSwitchOptionSuccess').click(function (e) {
+        if($('#someSwitchOptionSuccess').is(':checked')){
+            $('#ensurance-payment').hide();
+            $('#particular-payment').fadeIn("slow");
+        } else {
+            $('#ensurance-payment').fadeIn("slow");
+            $('#particular-payment').hide();
+        }
+    })
 
 });
 

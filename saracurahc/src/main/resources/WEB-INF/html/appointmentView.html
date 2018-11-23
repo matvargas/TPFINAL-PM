@@ -179,7 +179,7 @@
                             </div>
                             <div class="col-md-4">Particular</div>
                         </div>
-                        <div class="row mt2pc">
+                        <div class="row mt2pc" id="ensurance-payment">
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -189,7 +189,7 @@
                                         </i>
                                     </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Convênio" aria-label="Convênio" aria-describedby="insurance-name">
+                                    <input type="text" id="patient-name-text" class="form-control" placeholder="Convênio" aria-label="Convênio" aria-describedby="insurance-name">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -201,8 +201,21 @@
                                         </i>
                                     </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Matrícula" aria-label="Matrícula" aria-describedby="insurance-registration">
+                                    <input type="text" id="patient-registration-number" class="form-control" placeholder="Matrícula" aria-label="Matrícula" aria-describedby="insurance-registration">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row mt2pc" id="particular-payment">
+                            <div class="col-md-6">
+                                <h6>Escolha a forma de pagamento:
+                            </div>
+                            <div class="col-md-6">
+                                <select class="btn btn-ligth dropdown-toggle">
+                                    <option class="dropdown-item">Cartão - Crédito</option>
+                                    <option class="dropdown-item">Cartão - Débito</option>
+                                    <option class="dropdown-item">Cheque</option>
+                                    <option class="dropdown-item">Dinheiro</option>
+                                </select>
                             </div>
                         </div>
                     </div>
