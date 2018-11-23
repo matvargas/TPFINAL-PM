@@ -30,9 +30,6 @@ public class DoctorRestController {
         return doctorDAO.findBySpeciality(speciality);
     }
 
-//    insert into event(doctor_associated, type, title, beginDate, endDate)
-//    values(1, 1, 'Consulta Médica', '2018-11-24T13:00:00', '2018-11-24T13:20:00');
-
     @RequestMapping(value = "/generateDoctorSchedule/{doctorID}/{workScale}/{startHour}", method = GET)
     @ResponseBody
     public String getDoctorsBySpeciality(@PathVariable("doctorID") String doctorID, @PathVariable("workScale") Integer workScale, @PathVariable("startHour") Integer startHour){

@@ -1,8 +1,11 @@
 //Run as soon as the page is loaded
 $(document).ready(function () {
 
+    var speciality;
+    var doctor;
+
     $('.speciality-select').click(function(e) {
-        var speciality = $(e.target).text();
+        speciality = $(e.target).text();
         getDoctorsBySpeciality(speciality);
         $('#btnDropdownSpecialities').html('');
         $('#btnDropdownSpecialities').append(speciality);
@@ -16,6 +19,17 @@ $(document).ready(function () {
         },
         theme: 'bootstrap3',
         eventClick: function(event, jsEvent, view){
+
+            // FILL MODAL WITH APPOINTMENT DETAILS
+            $('#appointment-details #modal-detail-speciality').html('');
+            $('#appointment-details #modal-detail-speciality').append(speciality);
+
+            $('#appointment-details #modal-detail-start').html('');
+            $('#appointment-details #modal-detail-start').append(moment(event.start).format('h:mm:ss a'));
+
+            $('#appointment-details #modal-detail-duration').html('');
+            $('#appointment-details #modal-detail-duration').append(moment(event.end).format('h:mm:ss a'));
+
             $('#appointment-details').show();
             $('#modalProceedBtn').show();
             $('#modalConfirmBtn').hide();
@@ -56,10 +70,13 @@ function getDoctorsBySpeciality(speciality) {
             }
 
             $('.selected-doctor').click(function (e) {
-                var doctor = $(e.target).text();
+                doctor = $(e.target).text();
                 $('#btnDropdownDoctors').html('');
                 $('#btnDropdownDoctors').append(doctor);
                 $('#appointment-schedule').removeClass("disabled");
+
+                $('#appointment-details #modal-detail-doctor').html('');
+                $('#appointment-details #modal-detail-doctor').append(doctor);
 
                 // Fill schedule with events
                 getEvents(doctor);
