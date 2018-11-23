@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -30,19 +33,40 @@ public class DoctorRestController {
 //    insert into event(doctor_associated, type, title, beginDate, endDate)
 //    values(1, 1, 'Consulta Médica', '2018-11-24T13:00:00', '2018-11-24T13:20:00');
 
-    @RequestMapping(value = "/generateDoctorSchedule/{doctorID}/{workScale}", method = GET)
+    @RequestMapping(value = "/generateDoctorSchedule/{doctorID}/{workScale}/{startHour}", method = GET)
     @ResponseBody
-    public String getDoctorsBySpeciality(@PathVariable("doctorID") String doctorID, @PathVariable("workScale") Integer workScale){
+    public String getDoctorsBySpeciality(@PathVariable("doctorID") String doctorID, @PathVariable("workScale") Integer workScale, @PathVariable("startHour") Integer startHour){
         String response = "";
-        int numAppointmets = WORK_DAY_MINUTES/workScale;
-        for (int i = 0; i < numAppointmets; i++){
-            response += "insert into event(doctor_associated, type, title, beginDate, endDate)" +
-            "values(" + doctorID + ", 1, 'Consulta Médica', '" + new Date().getYear() +
-                    "-" +
-                    new Date().getMonth() +
-                    "-24T13:00:00";
+        try {
+
+            SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat hourFormat = new SimpleDateFormat("HH:mm:ss");
+            String dateString = dayFormat.format(new Date());
+            String hourString;
+
+            String startDateString = startHour + ":00:00";
+            Date date = hourFormat.parse(startDateString);
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            hourString = hourFormat.format(calendar.getTime());
+
+            int numAppointmets = WORK_DAY_MINUTES / workScale;
+            for (int i = 0; i < numAppointmets; i++){
+                response = "";
+                response += "insert into event(doctor_associated, type, title, beginDate, endDate) \n" +
+                "values(" + doctorID + ", 1, 'Consulta Médica', '" + dateString + "T" + hourString + "', '";
+
+                calendar.add(Calendar.MINUTE, workScale);
+                hourString = hourFormat.format(calendar.getTime());
+
+                response += dateString + "T" + hourString + "'); \n\n";
+                System.out.print(response);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        return response;
+        return "Copy and paste console response to data.sql file";
     }
 
 }

@@ -82,31 +82,163 @@ values(2, 'Exame de Imagem');
 -- Populate Events
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T13:00:00', '2018-11-24T13:20:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T13:00:00', '2018-11-23T13:30:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T13:20:00', '2018-11-24T13:40:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T13:30:00', '2018-11-23T14:00:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T13:40:00', '2018-11-24T14:00:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T14:00:00', '2018-11-23T14:30:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T14:00:00', '2018-11-24T14:20:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T14:30:00', '2018-11-23T15:00:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T14:20:00', '2018-11-24T14:40:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T15:00:00', '2018-11-23T15:30:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T14:40:00', '2018-11-24T15:00:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T15:30:00', '2018-11-23T16:00:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T15:00:00', '2018-11-24T15:20:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T16:00:00', '2018-11-23T16:30:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T15:20:00', '2018-11-24T15:40:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T16:30:00', '2018-11-23T17:00:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T15:40:00', '2018-11-24T16:00:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T17:00:00', '2018-11-23T17:30:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
-values(1, 1, 'Consulta Médica', '2018-11-24T16:00:00', '2018-11-24T16:20:00');
+values(1, 1, 'Consulta Médica', '2018-11-23T17:30:00', '2018-11-23T18:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-23T18:00:00', '2018-11-23T18:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(1, 1, 'Consulta Médica', '2018-11-23T18:30:00', '2018-11-23T19:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T08:00:00', '2018-11-23T08:15:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T08:15:00', '2018-11-23T08:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T08:30:00', '2018-11-23T08:45:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T08:45:00', '2018-11-23T09:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T09:00:00', '2018-11-23T09:15:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T09:15:00', '2018-11-23T09:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T09:30:00', '2018-11-23T09:45:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T09:45:00', '2018-11-23T10:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T10:00:00', '2018-11-23T10:15:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T10:15:00', '2018-11-23T10:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T10:30:00', '2018-11-23T10:45:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T10:45:00', '2018-11-23T11:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T11:00:00', '2018-11-23T11:15:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T11:15:00', '2018-11-23T11:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T11:30:00', '2018-11-23T11:45:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T11:45:00', '2018-11-23T12:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T12:00:00', '2018-11-23T12:15:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T12:15:00', '2018-11-23T12:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T12:30:00', '2018-11-23T12:45:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T12:45:00', '2018-11-23T13:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T13:00:00', '2018-11-23T13:15:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T13:15:00', '2018-11-23T13:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T13:30:00', '2018-11-23T13:45:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-11-23T13:45:00', '2018-11-23T14:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T10:00:00', '2018-11-23T10:20:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T10:20:00', '2018-11-23T10:40:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T10:40:00', '2018-11-23T11:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T11:00:00', '2018-11-23T11:20:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T11:20:00', '2018-11-23T11:40:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T11:40:00', '2018-11-23T12:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T12:00:00', '2018-11-23T12:20:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T12:20:00', '2018-11-23T12:40:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T12:40:00', '2018-11-23T13:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T13:00:00', '2018-11-23T13:20:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T13:20:00', '2018-11-23T13:40:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T13:40:00', '2018-11-23T14:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T14:00:00', '2018-11-23T14:20:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T14:20:00', '2018-11-23T14:40:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T14:40:00', '2018-11-23T15:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T15:00:00', '2018-11-23T15:20:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T15:20:00', '2018-11-23T15:40:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(3, 1, 'Consulta Médica', '2018-11-23T15:40:00', '2018-11-23T16:00:00');
