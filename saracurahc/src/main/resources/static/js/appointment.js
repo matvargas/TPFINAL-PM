@@ -22,10 +22,12 @@ $(document).ready(function () {
 
             // FILL MODAL WITH APPOINTMENT DETAILS
 
-            $('#someSwitchOptionSuccess').prop('checked', false);
+            $('#someSwitchOptionSuccess').prop(':checked', false);
 
-            $('#patient-name-text').val('');
+            $('#ensurance-name-text').val('');
             $('#patient-registration-number').val('');
+            $('#pacient-phone-input').val('');
+            $('#pacient-name-input').val('');
 
             $('#appointment-details #modal-detail-speciality').html('');
             $('#appointment-details #modal-detail-speciality').append(speciality);
@@ -51,10 +53,13 @@ $(document).ready(function () {
     $('#appointment-schedule').addClass("disabled");
 
     $('#modalProceedBtn').click(function (e) {
-        $('#appointment-details').hide();
-        $('#modalProceedBtn').hide();
-        $('#modalConfirmBtn').fadeIn("slow");
-        $('#appointment-payment').fadeIn("slow");
+
+        if($('#pacient-phone-input').val() != '' && $('#pacient-name-input').val() != ''){
+            $('#appointment-details').hide();
+            $('#modalProceedBtn').hide();
+            $('#modalConfirmBtn').fadeIn("slow");
+            $('#appointment-payment').fadeIn("slow");
+        }
     });
 
     $('#particular-payment').hide();
@@ -67,7 +72,21 @@ $(document).ready(function () {
             $('#ensurance-payment').fadeIn("slow");
             $('#particular-payment').hide();
         }
-    })
+    });
+
+    $('#modalConfirmBtn').click(function (e) {
+
+        //Verify if the payment type is particular
+        if($('#someSwitchOptionSuccess').is(':checked')){
+            if($('#payment-type-dropdown').val() != 0) {
+                confirmAppontmentParticular($('#payment-type-dropdown').val(), $('#pacient-name-input').val(), $('#pacient-phone-input').val());
+            }
+        } else {
+            if($('#ensurance-name-text').val() != '' && $('#patient-registration-number').val() != ''){
+                // confirmAppointmentEsnurance($('#ensurance-name-text').val(), $('#patient-registration-number').val());
+            }
+        }
+    });
 
 });
 
@@ -139,6 +158,23 @@ function getEvents(doctor) {
         },
         error: function (e) {
             alert("Error fetching events");
+        }
+    });
+}
+
+function confirmAppontmentParticular(paymentForm, patientName, patientPhone) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/confirmAppontmentParticular/" + paymentForm + "/" + patientName + "/"+ patientPhone,
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            alert(data);
+        },
+        error: function (e) {
+            alert("Error on confirm appointment");
         }
     });
 }

@@ -146,7 +146,7 @@
                                             </i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input id="pacient-name-input" type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -158,7 +158,7 @@
                                             </i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon2">
+                                    <input id="pacient-phone-input" type="text" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon2">
                                 </div>
                             </div>
                         </div>
@@ -207,14 +207,15 @@
                         </div>
                         <div class="row mt2pc" id="particular-payment">
                             <div class="col-md-6">
-                                <h6>Escolha a forma de pagamento:
+                                <h6>Escolha a forma de pagamento:</h6>
                             </div>
                             <div class="col-md-6">
-                                <select class="btn btn-ligth dropdown-toggle">
-                                    <option class="dropdown-item">Cartão - Crédito</option>
-                                    <option class="dropdown-item">Cartão - Débito</option>
-                                    <option class="dropdown-item">Cheque</option>
-                                    <option class="dropdown-item">Dinheiro</option>
+                                <select class="btn btn-ligth dropdown-toggle" id="payment-type-dropdown">
+                                    <option class="dropdown-item" selected value="0">Selecione...</option>
+                                    <option class="dropdown-item" value="1">Cartão - Crédito</option>
+                                    <option class="dropdown-item" value="2">Cartão - Débito</option>
+                                    <option class="dropdown-item" value="3">Cheque</option>
+                                    <option class="dropdown-item" value="4">Dinheiro</option>
                                 </select>
                             </div>
                         </div>
