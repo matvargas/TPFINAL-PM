@@ -1,11 +1,9 @@
 package com.saracurahc.models;
 
+import com.saracurahc.Objects.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Map;
 
 @Repository
 public class PatientDAO {
@@ -13,8 +11,18 @@ public class PatientDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<Map<String, Object>> insertOrUpdatePatient(String speciality) {
-        return jdbcTemplate.queryForList("SELECT * FROM DOCTOR D WHERE D.speciality = ?", new Object[]{speciality});
+    public boolean insertOrUpdatePatient(Patient patient) {
+
+        boolean response = false;
+        int responseInt = jdbcTemplate.update("INSERT INTO PATIENT(name, phone) VALUES(?,?)",
+                patient.getName(),
+                patient.getPhoneNumber());
+
+        if(responseInt == 1) {
+            response = true;
+        }
+
+        return response;
     }
 
 

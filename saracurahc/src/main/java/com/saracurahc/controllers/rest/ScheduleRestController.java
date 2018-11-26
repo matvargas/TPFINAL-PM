@@ -46,6 +46,9 @@ public class ScheduleRestController {
             Patient patient = new Patient();
             patient.setName(patientName);
             patient.setPhoneNumber(patientPhone);
+
+            result = patientDAO.insertOrUpdatePatient(patient);
+
         }
 
         return result;

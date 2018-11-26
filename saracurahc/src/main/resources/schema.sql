@@ -15,6 +15,7 @@ CREATE TABLE Doctor (
 CREATE TABLE Patient (
     id   INTEGER      NOT NULL AUTO_INCREMENT,
     name VARCHAR(128) NOT NULL,
+    phone VARCHAR(128) NOT NULL,
     PRIMARY KEY (id)
 );
 
