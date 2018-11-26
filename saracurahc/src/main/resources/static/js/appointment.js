@@ -32,6 +32,8 @@ $(document).ready(function () {
             $('#appointment-details #modal-detail-speciality').html('');
             $('#appointment-details #modal-detail-speciality').append(speciality);
 
+            $('#event-id').val(event.id);
+
             $('#appointment-details #modal-detail-start').html('');
             $('#appointment-details #modal-detail-start').append(moment(event.start).format('h:mm:ss a'));
 
@@ -147,6 +149,7 @@ function getEvents(doctor) {
                 }
 
                 events.push({
+                    id: data[i]["ID"],
                     title: data[i]["TITLE"],
                     start: data[i]["BEGINDATE"],
                     end: data[i]["ENDDATE"],
