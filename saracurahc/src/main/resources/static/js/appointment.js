@@ -17,7 +17,7 @@ $(document).ready(function () {
             center:'title',
             right:'month,agendaWeek,agendaDay'
         },
-        theme: 'bootstrap3',
+        lang: 'pt',
         eventClick: function(event, jsEvent, view){
 
             // FILL MODAL WITH APPOINTMENT DETAILS
@@ -174,7 +174,13 @@ function confirmAppontmentParticular(paymentForm, patientName, patientPhone) {
         cache: false,
         timeout: 600000,
         success: function (data) {
-            alert(data);
+            if(data) {
+                alert("Pagamento efetuado com sucesso!");
+                $('#eventCreatorModal').modal('hide');
+                $('#appointment-schedule').fullCalendar('refetchEvents');
+            } else {
+                alert("Pagamento negado.");
+            }
         },
         error: function (e) {
             alert("Error on confirm appointment");
