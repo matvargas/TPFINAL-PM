@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/pt-br.js"></script>
 
     <!--Specific js-->
     <script src="js/appointment.js"></script>
@@ -96,6 +97,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <input id="event-id" hidden>
                     <div id="appointment-details">
                         <div class="row">
                             <div class="col-md-12">
@@ -106,24 +108,28 @@
                             <div class="col-md-6">
                                 <i class="material-icons icon-offset">
                                     info
-                                </i> Especialidade
+                                </i>
+                                <span id="modal-detail-speciality"> <!-- TO BE FILLED WITH JS --> </span>
                             </div>
                             <div class="col-md-6">
                                 <i class="material-icons icon-offset">
                                     perm_identity
-                                </i>Médico responsável
+                                </i>
+                                <span id="modal-detail-doctor"> <!-- TO BE FILLED WITH JS --> </span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <i class="material-icons icon-offset">
                                     access_time
-                                </i> Horário de início
+                                </i>
+                                <span id="modal-detail-start"> <!-- TO BE FILLED WITH JS --> </span>
                             </div>
                             <div class="col-md-6">
                                 <i class="material-icons icon-offset">
                                     hourglass_empty
-                                </i>Duração
+                                </i>
+                                <span id="modal-detail-duration"> <!-- TO BE FILLED WITH JS --> </span>
                             </div>
                         </div>
                         <hr>
@@ -142,7 +148,7 @@
                                             </i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input id="pacient-name-input" type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -154,7 +160,7 @@
                                             </i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon2">
+                                    <input id="pacient-phone-input" type="text" class="form-control" placeholder="Telefone" aria-label="Telefone" aria-describedby="basic-addon2">
                                 </div>
                             </div>
                         </div>
@@ -175,7 +181,7 @@
                             </div>
                             <div class="col-md-4">Particular</div>
                         </div>
-                        <div class="row mt2pc">
+                        <div class="row mt2pc" id="ensurance-payment">
                             <div class="col-md-6">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -185,7 +191,7 @@
                                         </i>
                                     </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Convênio" aria-label="Convênio" aria-describedby="insurance-name">
+                                    <input type="text" id="patient-name-text" class="form-control" placeholder="Convênio" aria-label="Convênio" aria-describedby="insurance-name">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -197,8 +203,22 @@
                                         </i>
                                     </span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Matrícula" aria-label="Matrícula" aria-describedby="insurance-registration">
+                                    <input type="text" id="patient-registration-number" class="form-control" placeholder="Matrícula" aria-label="Matrícula" aria-describedby="insurance-registration">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row mt2pc" id="particular-payment">
+                            <div class="col-md-6">
+                                <h6>Escolha a forma de pagamento:</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="btn btn-ligth dropdown-toggle" id="payment-type-dropdown">
+                                    <option class="dropdown-item" selected value="0">Selecione...</option>
+                                    <option class="dropdown-item" value="1">Cartão - Crédito</option>
+                                    <option class="dropdown-item" value="2">Cartão - Débito</option>
+                                    <option class="dropdown-item" value="3">Cheque</option>
+                                    <option class="dropdown-item" value="4">Dinheiro</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -211,5 +231,6 @@
             </div>
         </div>
     </div>
+<div id="teste"></div>
 </body>
 </html>

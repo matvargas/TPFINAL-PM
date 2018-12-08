@@ -1,8 +1,11 @@
 //Run as soon as the page is loaded
 $(document).ready(function () {
 
+    var speciality;
+    var doctor;
+
     $('.speciality-select').click(function(e) {
-        var speciality = $(e.target).text();
+        speciality = $(e.target).text();
         getDoctorsBySpeciality(speciality);
         $('#btnDropdownSpecialities').html('');
         $('#btnDropdownSpecialities').append(speciality);
@@ -14,10 +17,34 @@ $(document).ready(function () {
             center:'title',
             right:'month,agendaWeek,agendaDay'
         },
-        theme: 'bootstrap3',
-        selectable:true,
-        select: function(start, end)
-        {
+        lang: 'pt',
+        eventClick: function(event, jsEvent, view){
+
+            // FILL MODAL WITH APPOINTMENT DETAILS
+
+            $('#someSwitchOptionSuccess').prop(':checked', false);
+
+            $('#ensurance-name-text').val('');
+            $('#patient-registration-number').val('');
+            $('#pacient-phone-input').val('');
+
+            if(event.patient == null) {
+                $('#pacient-name-input').val('');
+            } else {
+                $('#pacient-name-input').val(event.patient);
+            }
+
+            $('#appointment-details #modal-detail-speciality').html('');
+            $('#appointment-details #modal-detail-speciality').append(speciality);
+
+            $('#eventCreatorModal #event-id').val(event.id);
+
+            $('#appointment-details #modal-detail-start').html('');
+            $('#appointment-details #modal-detail-start').append(moment(event.start).format('h:mm:ss a'));
+
+            $('#appointment-details #modal-detail-duration').html('');
+            $('#appointment-details #modal-detail-duration').append(moment(event.end).format('h:mm:ss a'));
+
             $('#appointment-details').show();
             $('#modalProceedBtn').show();
             $('#modalConfirmBtn').hide();
@@ -25,7 +52,7 @@ $(document).ready(function () {
             $('#eventCreatorModal').modal('show');
         },
         height: 650,
-        defaultView: 'agendaWeek',
+        defaultView: 'month',
         editable: true,
         eventLimit: true, // allow "more" link when too many events
     });
@@ -33,10 +60,39 @@ $(document).ready(function () {
     $('#appointment-schedule').addClass("disabled");
 
     $('#modalProceedBtn').click(function (e) {
-        $('#appointment-details').hide();
-        $('#modalProceedBtn').hide();
-        $('#modalConfirmBtn').fadeIn("slow");
-        $('#appointment-payment').fadeIn("slow");
+
+        if($('#pacient-phone-input').val() != '' && $('#pacient-name-input').val() != ''){
+            $('#appointment-details').hide();
+            $('#modalProceedBtn').hide();
+            $('#modalConfirmBtn').fadeIn("slow");
+            $('#appointment-payment').fadeIn("slow");
+        }
+    });
+
+    $('#particular-payment').hide();
+
+    $('#someSwitchOptionSuccess').click(function (e) {
+        if($('#someSwitchOptionSuccess').is(':checked')){
+            $('#ensurance-payment').hide();
+            $('#particular-payment').fadeIn("slow");
+        } else {
+            $('#ensurance-payment').fadeIn("slow");
+            $('#particular-payment').hide();
+        }
+    });
+
+    $('#modalConfirmBtn').click(function (e) {
+
+        //Verify if the payment type is particular
+        if($('#someSwitchOptionSuccess').is(':checked')){
+            if($('#payment-type-dropdown').val() != 0) {
+                confirmAppontmentParticular($('#payment-type-dropdown').val(), $('#pacient-name-input').val(), $('#pacient-phone-input').val());
+            }
+        } else {
+            if($('#ensurance-name-text').val() != '' && $('#patient-registration-number').val() != ''){
+                // confirmAppointmentEsnurance($('#ensurance-name-text').val(), $('#patient-registration-number').val());
+            }
+        }
     });
 
 });
@@ -58,14 +114,82 @@ function getDoctorsBySpeciality(speciality) {
             }
 
             $('.selected-doctor').click(function (e) {
-                var doctor = $(e.target).text();
+                doctor = $(e.target).text();
                 $('#btnDropdownDoctors').html('');
                 $('#btnDropdownDoctors').append(doctor);
                 $('#appointment-schedule').removeClass("disabled");
+
+                $('#appointment-details #modal-detail-doctor').html('');
+                $('#appointment-details #modal-detail-doctor').append(doctor);
+
+                // Fill schedule with events
+                getEvents(doctor);
+
             })
         },
         error: function (e) {
             $('#btnDropdownDoctors').prop("disabled", true);
+        }
+    });
+}
+
+function getEvents(doctor) {
+
+    events = [];
+
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/getEventsByDoctorName/" + doctor,
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            for (i = 0; i < data.length ;i++){
+
+                var color = "#2d5880";
+
+                if(data[i]["PATIENT_ASSOCIATED"] == null) {
+                   color = "#0df11f";
+                }
+
+                events.push({
+                    id: data[i]["ID"],
+                    title: data[i]["TITLE"],
+                    start: data[i]["BEGINDATE"],
+                    end: data[i]["ENDDATE"],
+                    patient: data[i]["PATIENT_ASSOCIATED"],
+                    color: color,
+                });
+            }
+            $('#appointment-schedule').fullCalendar('removeEventSources');
+            $('#appointment-schedule').fullCalendar('addEventSource',  events);
+        },
+        error: function (e) {
+            alert("Error fetching events");
+        }
+    });
+}
+
+function confirmAppontmentParticular(paymentForm, patientName, patientPhone) {
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "/confirmAppontmentParticular/" + paymentForm + "/" + patientName + "/"+ patientPhone + "/" + $('#eventCreatorModal #event-id').val(),
+        dataType: 'json',
+        cache: false,
+        timeout: 600000,
+        success: function (data) {
+            if(data) {
+                alert("Pagamento efetuado com sucesso!");
+                $('#eventCreatorModal').modal('hide');
+                getEvents(doctor);
+            } else {
+                alert("Pagamento negado.");
+            }
+        },
+        error: function (e) {
+            alert("Error on confirm appointment");
         }
     });
 }
