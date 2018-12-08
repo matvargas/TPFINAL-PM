@@ -36,9 +36,9 @@ public class ScheduleRestController {
         return eventDAO.getEventsByDoctorName(doctorName);
     }
 
-    @RequestMapping(value = "/confirmAppontmentParticular/{paymentForm}/{patientName}/{patientPhone}", method = GET)
+    @RequestMapping(value = "/confirmAppontmentParticular/{paymentForm}/{patientName}/{patientPhone}/{eventID}", method = GET)
     @ResponseBody
-    public boolean confirmAppontmentParticular(@PathVariable("paymentForm") String paymentForm, @PathVariable("patientName") String patientName, @PathVariable("patientPhone") String patientPhone){
+    public boolean confirmAppontmentParticular(@PathVariable("paymentForm") String paymentForm, @PathVariable("patientName") String patientName, @PathVariable("patientPhone") String patientPhone, @PathVariable("eventID") Integer eventID){
         Random random = new Random();
         boolean result = random.nextBoolean();
 
@@ -47,7 +47,8 @@ public class ScheduleRestController {
             patient.setName(patientName);
             patient.setPhoneNumber(patientPhone);
 
-            result = patientDAO.insertOrUpdatePatient(patient);
+            result &= patientDAO.insertOrUpdatePatient(patient);
+            result &= eventDAO.updateEventPatientAssociatedByName(patientName, eventID);
 
         }
 

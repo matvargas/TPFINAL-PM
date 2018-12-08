@@ -27,7 +27,7 @@ CREATE TABLE Event_Type (
 
 CREATE TABLE Event (
   id INTEGER NOT NULL AUTO_INCREMENT,
-  patient_associated INTEGER,
+  patient_associated VARCHAR(128),
   doctor_associated INTEGER,
   equipment_associated INTEGER,
   type INTEGER NOT NULL,
@@ -36,6 +36,6 @@ CREATE TABLE Event (
   endDate VARCHAR(128) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (type) REFERENCES Event_Type(id),
-  FOREIGN KEY (patient_associated) REFERENCES Patient(id),
+  FOREIGN KEY (patient_associated) REFERENCES Patient(name),
   FOREIGN KEY (doctor_associated) REFERENCES Doctor(id)
 );

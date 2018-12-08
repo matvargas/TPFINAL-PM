@@ -278,3 +278,39 @@ values(1, 1, 'Consulta Médica', '2018-12-04T13:00:00', '2018-12-04T13:30:00');
 
 insert into event(doctor_associated, type, title, beginDate, endDate)
 values(1, 1, 'Consulta Médica', '2018-12-04T13:30:00', '2018-12-04T14:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T13:00:00', '2018-12-08T13:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T13:30:00', '2018-12-08T14:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T14:00:00', '2018-12-08T14:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T14:30:00', '2018-12-08T15:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T15:00:00', '2018-12-08T15:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T15:30:00', '2018-12-08T16:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T16:00:00', '2018-12-08T16:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T16:30:00', '2018-12-08T17:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T17:00:00', '2018-12-08T17:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T17:30:00', '2018-12-08T18:00:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T18:00:00', '2018-12-08T18:30:00');
+
+insert into event(doctor_associated, type, title, beginDate, endDate)
+values(2, 1, 'Consulta Médica', '2018-12-08T18:30:00', '2018-12-08T19:00:00');

@@ -27,12 +27,17 @@ $(document).ready(function () {
             $('#ensurance-name-text').val('');
             $('#patient-registration-number').val('');
             $('#pacient-phone-input').val('');
-            $('#pacient-name-input').val('');
+
+            if(event.patient == null) {
+                $('#pacient-name-input').val('');
+            } else {
+                $('#pacient-name-input').val(event.patient);
+            }
 
             $('#appointment-details #modal-detail-speciality').html('');
             $('#appointment-details #modal-detail-speciality').append(speciality);
 
-            $('#event-id').val(event.id);
+            $('#eventCreatorModal #event-id').val(event.id);
 
             $('#appointment-details #modal-detail-start').html('');
             $('#appointment-details #modal-detail-start').append(moment(event.start).format('h:mm:ss a'));
@@ -153,6 +158,7 @@ function getEvents(doctor) {
                     title: data[i]["TITLE"],
                     start: data[i]["BEGINDATE"],
                     end: data[i]["ENDDATE"],
+                    patient: data[i]["PATIENT_ASSOCIATED"],
                     color: color,
                 });
             }
@@ -169,7 +175,7 @@ function confirmAppontmentParticular(paymentForm, patientName, patientPhone) {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "/confirmAppontmentParticular/" + paymentForm + "/" + patientName + "/"+ patientPhone,
+        url: "/confirmAppontmentParticular/" + paymentForm + "/" + patientName + "/"+ patientPhone + "/" + $('#eventCreatorModal #event-id').val(),
         dataType: 'json',
         cache: false,
         timeout: 600000,
@@ -177,7 +183,7 @@ function confirmAppontmentParticular(paymentForm, patientName, patientPhone) {
             if(data) {
                 alert("Pagamento efetuado com sucesso!");
                 $('#eventCreatorModal').modal('hide');
-                $('#appointment-schedule').fullCalendar('refetchEvents');
+                getEvents(doctor);
             } else {
                 alert("Pagamento negado.");
             }

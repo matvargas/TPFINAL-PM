@@ -13,16 +13,14 @@ public class PatientDAO {
 
     public boolean insertOrUpdatePatient(Patient patient) {
 
-        boolean response = false;
         int responseInt = jdbcTemplate.update("INSERT INTO PATIENT(name, phone) VALUES(?,?)",
                 patient.getName(),
                 patient.getPhoneNumber());
 
-        if(responseInt == 1) {
-            response = true;
-        }
+        if(responseInt == 1)
+            return true;
 
-        return response;
+        return false;
     }
 
 

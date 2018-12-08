@@ -24,4 +24,18 @@ public class EventDAO {
                 "WHERE D.name = ?", new Object[]{doctorName});
     }
 
+    public boolean updateEventPatientAssociatedByName(String patientName, int eventID) {
+        int responseInt = jdbcTemplate.update("UPDATE Event " +
+                " SET patient_associated = ?" +
+                " WHERE id = ?",
+                patientName,
+                eventID);
+
+        if(responseInt == 1) {
+            return true;
+        }
+
+        return false;
+    }
+
 }
