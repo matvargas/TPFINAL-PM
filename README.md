@@ -59,6 +59,7 @@ e pagamentos devem usar a mesma interface e os mesmos procedimentos já descrito
 consulta. Após a confirmar a autorização ou o pagamento a agenda de exames deverá ser encerrada
 e o sistema retorna à tela inicial.
 
+![alt text](https://github.com/matvargas/TPFINAL-PM/blob/master/saracurahc/src/main/resources/static/images/gifs/scheduling.gif "Agendamento")
 
 ###### Validação do pagamento de atendimento particular.
 Caso seja o atendimento (consulta ou exame) seja particular, serão admitidas três formas de
